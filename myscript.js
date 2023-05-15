@@ -12,18 +12,19 @@
 // Solo una volta che il milestone 1 sarà completo e funzionante allora realizzeremo un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo.
 // Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo).
 
-const km = parseInt ( document.getElementById ("km").value )
-const eta = parseInt ( document.getElementById ("eta").value )
 const button = document.querySelector ( "button" )
-
-
-const prezzoIntero = km * 0.233
-const prezzoMinorenni = ( 1 - 0.194) * prezzoIntero
-const prezzoOver = ( 1 - 0.377 ) * prezzoIntero
-
 
 button.addEventListener ("click",
     function () {
+        const km = parseInt ( document.getElementById ("km").value )
+        const eta = parseInt ( document.getElementById ("eta").value )
+    
+    
+        const prezzoIntero = km * 0.233
+        const prezzoMinorenni = ( 1 - 0.194) * prezzoIntero
+        const prezzoOver = ( 1 - 0.377 ) * prezzoIntero
+
+
         if ( isNaN (km) || isNaN (eta) || km < 0 || eta < 0) {
             console.log ( "C'è un errore di scrittura dei dati" )
         } else {

@@ -13,6 +13,7 @@
 // Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo).
 
 const button = document.querySelector ( "button" )
+const risposta = document.querySelector ( "p" )
 
 button.addEventListener ("click",
     function () {
@@ -26,14 +27,22 @@ button.addEventListener ("click",
 
 
         if ( isNaN (km) || isNaN (eta) || km < 0 || eta < 0) {
-            console.log ( "C'è un errore di scrittura dei dati" )
+            risposta.innerHTML = "C'è un errore di scrittura dei dati"
+            risposta.classList.remove ( "my_green" )
+            risposta.classList.add ( "my_red" )
         } else {
             if ( eta > 17 && eta < 64 ) {
-                console.log ( "Devi percorrere " + km + "km e hai " + eta + " anni, il tuo biglietto viene " + prezzoIntero.toFixed(2) + "€" )
+                risposta.innerHTML = "Devi percorrere " + km + "km e hai " + eta + " anni, il tuo biglietto viene " + prezzoIntero.toFixed(2) + "€"
+                risposta.classList.remove ( "my_red" )
+                risposta.classList.add ( "my_green" )
             } else if ( eta <= 17 ) {
-                console.log ( "Devi percorrere " + km + "km e hai " + eta + " anni, sei minorenne! Il tuo biglietto è scontato del 19.4%! Il prezzo finale è di " + prezzoMinorenni.toFixed(2) + "€" )
+                risposta.innerHTML = "Devi percorrere " + km + "km e hai " + eta + " anni, sei minorenne! Il tuo biglietto è scontato del 19.4%! Il prezzo finale è di " + prezzoMinorenni.toFixed(2) + "€"
+                risposta.classList.remove ( "my_red" )
+                risposta.classList.add ( "my_green" )
             } else {
-                console.log ( "Devi percorrere " + km + "km e hai " + eta + " anni, sei over 65! Il tuo biglietto è scontato del 37.7%! Il prezzo finale è di " + prezzoOver.toFixed(2) + "€" )
+                risposta.innerHTML = "Devi percorrere " + km + "km e hai " + eta + " anni, sei over 65! Il tuo biglietto è scontato del 37.7%! Il prezzo finale è di " + prezzoOver.toFixed(2) + "€"
+                risposta.classList.remove ( "my_red" )
+                risposta.classList.add ( "my_green" )
             }
         }
     }
